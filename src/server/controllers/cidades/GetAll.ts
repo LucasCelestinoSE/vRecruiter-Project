@@ -10,15 +10,13 @@ interface IQueryProps {
   filter?: string;
 }
 export const getAllValidation = validation((getSchema) => ({
-  query: getSchema<IQueryProps>(yup.object().shape({
-    page: yup.number().moreThan(0),
-    limit: yup.number().moreThan(0),
-    filter: yup.string(),
+    query: getSchema<IQueryProps>(yup.object().shape({
+    page: yup.number().optional().moreThan(0),
+    limit: yup.number().optional().moreThan(0),
+    filter: yup.string().optional(),
   })),
 }));
 
-export const getAll = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-  console.log(req.query);
-
-  return res.status(500).send('Não implementado!');
+export const getAll = async (req: Request<{}, {},{}, IQueryProps>, res: Response) => {
+  return res.status(200).json(req.query);
 };

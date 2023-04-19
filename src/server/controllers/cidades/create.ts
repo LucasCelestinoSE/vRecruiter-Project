@@ -19,5 +19,5 @@ export const createValidation = validation((getSchema) => ({
   })),
 }));
 export const create = async (req: Request<{},{},iCidade>,res: Response) => {
-  res.status(500).json({message: 'Nao implementado'})
+  res.status(200).json(req.body)
 } 
