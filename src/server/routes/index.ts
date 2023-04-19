@@ -1,9 +1,9 @@
 import {Router} from 'express'
+import { cidadeController } from './../controllers'
 const router = Router()
 router.get('/', (req,res) => {
     return res.send('Olá, Dev!')
 })
-router.post('/', (req,res) => {
-    return res.send(req.body)
-})
+router.post('/cidades', cidadeController.create)
+
 export {router}
