@@ -1,6 +1,6 @@
 import { server } from './server/Server';
 import 'dotenv/config'
-
+import cors from 'cors'
 
 
 
